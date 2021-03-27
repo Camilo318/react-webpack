@@ -1,39 +1,37 @@
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: path.resolve(__dirname, '..', './src/index.js'),
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       }
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js']
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, '..', './dist'),
     filename: 'bundle.js'
   },
-  devtool: 'source-map',
+
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './public/index.html'),
+      template: path.resolve(__dirname, '..', './public/index.html'),
       inject: true
-    }),
-    new CleanWebpackPlugin()
+    })
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
-    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, '..', './dist'),
     open: true,
+    historyApiFallback: true,
     hot: true
   }
 }
