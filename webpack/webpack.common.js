@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.js'),
@@ -30,6 +31,10 @@ module.exports = {
     }),
     new Dotenv({
       path: path.resolve(__dirname, '..', './.env')
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true
     })
   ],
   devServer: {
