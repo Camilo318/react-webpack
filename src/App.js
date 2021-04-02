@@ -1,5 +1,5 @@
 import React from 'react'
-import mikasa from './assets/images/mikasa.png'
+import mikasa from './assets/mikasa.png'
 import styles from './style.css'
 const App = ({ title }) => (
   <div>
