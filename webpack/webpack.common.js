@@ -12,6 +12,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        type: 'asset/resource'
       }
     ]
   },
@@ -20,7 +24,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '..', './dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    assetModuleFilename: 'assets/[hash][ext][query]'
   },
 
   plugins: [
@@ -38,9 +43,6 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, '..', './dist'),
-    open: true,
-    historyApiFallback: true,
-    hot: true
+    contentBase: path.resolve(__dirname, '..', './dist')
   }
 }
