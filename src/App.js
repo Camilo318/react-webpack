@@ -1,9 +1,9 @@
 import React from 'react'
 import mikasa from './assets/images/mikasa.png'
-
+import styles from './style.css'
 const App = ({ title }) => (
   <div>
-    <h2>{title}</h2>
+    <h2 className={styles.title}>{title}</h2>
     <img src={mikasa} alt='Mikasa sprite' />
   </div>
 )
