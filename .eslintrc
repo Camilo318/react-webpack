@@ -5,6 +5,13 @@
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "react/jsx-filename-extension": 0,
+    "import/no-extraneous-dependencies": 0
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
   }
 }
